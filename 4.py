@@ -16,7 +16,7 @@ listgambar = []
 
 for a in span:
     nama = a.find('a').text
-    if nama == 'Return to Top' or nama == '' or nama == 'List of Digimon (Japanese)' or nama == 'A':
+    if nama == 'Return to Top' or nama == '':
         pass
     else:
         listnama.append(nama)
@@ -28,6 +28,7 @@ for a in span:
         else:
             listgambar.append('https://wikimon.net/'+gambar)
 
+del listnama[0:2]
 
 # IMPORT TO DICTIONARY=====================================================================================================================
 
@@ -47,7 +48,7 @@ with open('digimonlist.csv', 'w', newline='', encoding='utf8') as csv_file:
     writer.writeheader()
     writer.writerows(allData)
 
-#import to mysql=================================================================================================================
+#import to mysql =================================================================================================================
 
 mydb= mysql.connector.connect(
     host = 'localhost',
