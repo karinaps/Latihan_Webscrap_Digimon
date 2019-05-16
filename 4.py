@@ -56,6 +56,9 @@ mydb= mysql.connector.connect(
     database ='digimon'
 )
 
+hapus = mydb.cursor().execute('delete from digimon')
+mulai = mydb.cursor().execute('ALTER TABLE digimon AUTO_INCREMENT = 1')
+
 for c in range(len(listnama)):
     x = mydb.cursor()
     x.execute('insert into digimon (nama, gambar) values (%s, %s)', (listnama[c], listgambar[c])) 
